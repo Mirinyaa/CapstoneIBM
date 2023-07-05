@@ -21,7 +21,7 @@ An Assistant search skill is a mechanism that allows you to directly query a Wat
 
 ## Flow
 
-![architecture](doc/source/images/architecture.png)
+![architecture](images/flow.png)
 
 1. The document is annotated using Watson Discovery SDU
 1. The user interacts with the backend server via the app UI. The frontend app UI is a chatbot that engages the user in a conversation.
@@ -57,7 +57,7 @@ Create the following services:
 
 From the IBM Cloud dashboard, click on your new Discovery service in the resource list.
 
-  ![disco-launch-service](doc/source/images/1.png)
+  ![disco-launch-service](images/1.png)
 
 From the `Manage` tab panel of your Discovery service, click the `Launch Watson Discovery` button.
 
@@ -69,15 +69,15 @@ The landing page for Watson Discovery is a panel showing your current projects.
 
 Create a new project by clicking the `New Project` tile.
 
-  ![disco-create-project](doc/source/images/2.png)
+  ![disco-create-project](images/2.png)
 
 Give the project a unique name and select the `Document Retrieval` option, then click `Next`.
 
-  ![disco-upload-data](doc/source/images/3.png)
+  ![disco-upload-data](images/3.png)
 
 For data source, click on the `Upload data` tile and click `Next`.
 
-  ![disco-create-collection](doc/source/images/4.png)
+  ![disco-create-collection](images/4.png)
 
 Enter a unique name for your collection and click `Finish`.
 
@@ -85,7 +85,7 @@ Enter a unique name for your collection and click `Finish`.
 
 On the `Configure Collection` panel, click the `Drag and drop files here or upload` button to select and upload the `ecobee3_UserGuide.pdf` file located in the `data` directory of your local repo.
 
-  ![disco-upload-file](doc/source/images/5.png)
+  ![disco-upload-file](images/5.png)
 
 >**NOTE**: The `Ecobee` is a popular residential thermostat that has a wifi interface and multiple configuration options.
 
@@ -97,15 +97,15 @@ Note that after the file is loaded it may take some time for Watson Discovery to
 
 To access the collection, make sure you are in the correct project, then click the `Manage Collections` tab in the left-side of the panel.
 
-  ![disco-project-collections](doc/source/images/6.png)
+  ![disco-project-collections](images/6.png)
 
 Click the collection tile to access it.
 
-  ![disco-activity](doc/source/images/7.png)
+  ![disco-activity](images/7.png)
 
 Before applying Smart Document Understanding (SDU) to our document, lets do some simple queries on the data so that we can compare it to results found after applying SDU. Click the `Try it out` panel to bring up the query panel.
 
-  ![disco-query-results-pre](doc/source/images/8.png)
+  ![disco-query-results-pre](images/8.png)
 
 Enter queries related to the operation of the thermostat and view the results. As you will see, the results are not very useful, and in some cases, not even related to the question.
 
@@ -113,11 +113,11 @@ Enter queries related to the operation of the thermostat and view the results. A
 
 Now let's apply SDU to our document to see if we can generate some better query responses.
 
-  ![disco-new-fields](doc/source/images/9.png)
+  ![disco-new-fields](images/9.png)
 
 From the `Define structure` drop-down menu, click on `New fields`.
 
-  ![disco-launch-sdu](doc/source/images/10.png)
+  ![disco-launch-sdu](images/10.png)
 
 From the `Identify fields` tab panel, click on `User-trained models`, the click `Submit` from the confirmation dialog.
 
@@ -125,7 +125,7 @@ Click the `Apply changes and reprocess` button in the top right corner. This wil
 
 Here is the layout of the SDU annotation panel:
 
-![disco-sdu-main-panel](doc/source/images/11.png)
+![disco-sdu-main-panel](images/11.png)
 
 The goal is to annotate all of the pages in the document so Discovery can learn what text is important, and what text can be ignored.
 
@@ -154,7 +154,7 @@ Click the `Apply changes and reprocess` button [6] to load your changes. Wait fo
 
 Next, click on the `Manage fields` [1] tab.
 
-![disco-manage-fields](doc/source/images/12.png)
+![disco-manage-fields](images/12.png)
 
 * [2] Here is where you tell Discovery which fields to ignore. Using the `on/off` buttons, turn off all labels except `subtitles` and `text`.
 * [3] is telling Discovery to split the document apart, based on `subtitle`.
@@ -162,11 +162,11 @@ Next, click on the `Manage fields` [1] tab.
 
 Return to the `Activity` tab. After the changes are processed (may take some time), your collection will look very different:
 
-![disco-collection-panel](doc/source/images/7.png)
+![disco-collection-panel](images/7.png)
 
 Return to the query panel (click `Try it out`) and see how much better the results are.
 
-![disco-build-query-after](doc/source/images/13.png)
+![disco-build-query-after](images/13.png)
 
 </details>
 
@@ -190,7 +190,7 @@ From the main Assistant panel, you will see 2 tab options - `Assistants` and `Sk
 
 Go to the Assistant tab and click `Create assistant`.
 
-  ![assistant-list](doc/source/images/14.png)
+  ![assistant-list](images/14.png)
 
 Give your assistant a unique name then click `Create assistant`.
 
@@ -206,7 +206,7 @@ Click the `Create intent` button.
 
 Name the intent `#Product_Information`, and at a minimum, enter the following example questions to be associated with it.
 
-![create-assistant-intent](doc/source/images/15.png)
+![create-assistant-intent](images/15.png)
 
 #### Create new dialog node
 
@@ -214,11 +214,11 @@ Now we need to add a node to handle our intent. Click on the back arrow in the t
 
 Select the `What can I do` node, then click on the drop down menu and select the `Add node below` option.
 
-![assistant-add-node](doc/source/images/16.png)
+![assistant-add-node](images/16.png)
 
 Name the node "Ask about product" [1] and assign it our new intent [2].
 
-![assistant-define-node](doc/source/images/17.png)
+![assistant-define-node](images/17.png)
 
 In the `Assistant responds` dropdown, select the option `Search skill`.
 
@@ -238,13 +238,13 @@ Give your search skill a unique name, then click `Continue`.
 
 From the search skill panel, select the Discovery service instance and collection you created previously.
 
-![search-skill-assign-disco](doc/source/images/18.png)
+![search-skill-assign-disco](images/18.png)
 
 Click `Configure` to continue.
 
 From the `Configure Search Response` panel, select `text` as the field to use for the `Body` of the response.
 
-![ecobee-search-skill-setup](doc/source/images/19.png)
+![ecobee-search-skill-setup](images/19.png)
 
 You can also customize the return `Message` to be more appropriate for your use case.
 
@@ -256,10 +256,10 @@ Now when the dialog skill node invokes the search skill, the search skill will q
 
 Normally, you can test the dialog skill be selecting the `Try it` button located at the top right side of the dialog skill panel, but when integrated with a search skill, a different method of testing must be used.
 
-![preview-link](doc/source/images/20.png)
+![preview-link](images/20.png)
 
 You will also need the credentials for your Assistant service. What credentials you will need will depend on if you provisioned Watson Assistant on IBM Cloud Pak for Data or on IBM Cloud. Click to expand one:
 
 # Result Output
 
-![sample-output](doc/source/images/21.png)
+![sample-output](images/21.png)
