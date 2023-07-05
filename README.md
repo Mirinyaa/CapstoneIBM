@@ -113,11 +113,11 @@ Enter queries related to the operation of the thermostat and view the results. A
 
 Now let's apply SDU to our document to see if we can generate some better query responses.
 
-  ![disco-new-fields](doc/source/images/disco-new-fields.png)
+  ![disco-new-fields](doc/source/images/9.png)
 
 From the `Define structure` drop-down menu, click on `New fields`.
 
-  ![disco-launch-sdu](doc/source/images/disco-launch-sdu.png)
+  ![disco-launch-sdu](doc/source/images/10.png)
 
 From the `Identify fields` tab panel, click on `User-trained models`, the click `Submit` from the confirmation dialog.
 
@@ -125,7 +125,7 @@ Click the `Apply changes and reprocess` button in the top right corner. This wil
 
 Here is the layout of the SDU annotation panel:
 
-![disco-sdu-main-panel](doc/source/images/disco-sdu-main-panel.png)
+![disco-sdu-main-panel](doc/source/images/11.png)
 
 The goal is to annotate all of the pages in the document so Discovery can learn what text is important, and what text can be ignored.
 
@@ -154,7 +154,7 @@ Click the `Apply changes and reprocess` button [6] to load your changes. Wait fo
 
 Next, click on the `Manage fields` [1] tab.
 
-![disco-manage-fields](doc/source/images/disco-manage-fields.png)
+![disco-manage-fields](doc/source/images/12.png)
 
 * [2] Here is where you tell Discovery which fields to ignore. Using the `on/off` buttons, turn off all labels except `subtitles` and `text`.
 * [3] is telling Discovery to split the document apart, based on `subtitle`.
@@ -162,11 +162,11 @@ Next, click on the `Manage fields` [1] tab.
 
 Return to the `Activity` tab. After the changes are processed (may take some time), your collection will look very different:
 
-![disco-collection-panel](doc/source/images/disco-collection-panel.png)
+![disco-collection-panel](doc/source/images/7.png)
 
 Return to the query panel (click `Try it out`) and see how much better the results are.
 
-![disco-build-query-after](doc/source/images/disco-build-query-after.png)
+![disco-build-query-after](doc/source/images/13.png)
 
 </details>
 
@@ -190,7 +190,7 @@ From the main Assistant panel, you will see 2 tab options - `Assistants` and `Sk
 
 Go to the Assistant tab and click `Create assistant`.
 
-  ![assistant-list](doc/source/images/assistant-list.png)
+  ![assistant-list](doc/source/images/14.png)
 
 Give your assistant a unique name then click `Create assistant`.
 
@@ -206,7 +206,7 @@ Click the `Create intent` button.
 
 Name the intent `#Product_Information`, and at a minimum, enter the following example questions to be associated with it.
 
-![create-assistant-intent](doc/source/images/create-assistant-intent.png)
+![create-assistant-intent](doc/source/images/15.png)
 
 #### Create new dialog node
 
@@ -214,11 +214,11 @@ Now we need to add a node to handle our intent. Click on the back arrow in the t
 
 Select the `What can I do` node, then click on the drop down menu and select the `Add node below` option.
 
-![assistant-add-node](doc/source/images/assistant-add-node.png)
+![assistant-add-node](doc/source/images/16.png)
 
 Name the node "Ask about product" [1] and assign it our new intent [2].
 
-![assistant-define-node](doc/source/images/assistant-define-node.png)
+![assistant-define-node](doc/source/images/17.png)
 
 In the `Assistant responds` dropdown, select the option `Search skill`.
 
@@ -238,13 +238,13 @@ Give your search skill a unique name, then click `Continue`.
 
 From the search skill panel, select the Discovery service instance and collection you created previously.
 
-![search-skill-assign-disco](doc/source/images/search-skill-assign-disco.png)
+![search-skill-assign-disco](doc/source/images/18.png)
 
 Click `Configure` to continue.
 
 From the `Configure Search Response` panel, select `text` as the field to use for the `Body` of the response.
 
-![ecobee-search-skill-setup](doc/source/images/ecobee-search-skill-setup.png)
+![ecobee-search-skill-setup](doc/source/images/19.png)
 
 You can also customize the return `Message` to be more appropriate for your use case.
 
@@ -256,10 +256,10 @@ Now when the dialog skill node invokes the search skill, the search skill will q
 
 Normally, you can test the dialog skill be selecting the `Try it` button located at the top right side of the dialog skill panel, but when integrated with a search skill, a different method of testing must be used.
 
-![preview-link](doc/source/images/preview-link.png)
+![preview-link](doc/source/images/20.png)
 
 You will also need the credentials for your Assistant service. What credentials you will need will depend on if you provisioned Watson Assistant on IBM Cloud Pak for Data or on IBM Cloud. Click to expand one:
 
-# Sample Output
+# Result Output
 
-![sample-output](doc/source/images/sample-output.png)
+![sample-output](doc/source/images/21.png)
