@@ -34,7 +34,6 @@ An Assistant search skill is a mechanism that allows you to directly query a Wat
 
 # Steps:
 
-1. [Clone the repo](#1-clone-the-repo)
 1. [Create Watson services](#2-create-watson-services)
 1. [Configure Watson Discovery](#3-configure-watson-discovery)
 1. [Configure Watson Assistant](#4-configure-watson-assistant)
@@ -48,10 +47,6 @@ Create the following services:
 * **Watson Assistant**
 * **Watson Discovery**
 
-The instructions will depend on whether you are provisioning services using IBM Cloud Pak for Data or on IBM Cloud.
-
-Click to expand:
-<details><summary><b>IBM Cloud</b></summary>
 <p>
 <h5>Create the service instances</h5>
   <ul>
@@ -59,15 +54,8 @@ Click to expand:
     <li>Create a <b>Assistant</b> instance from <a href="https://cloud.ibm.com/catalog/services/watson-assistant">the catalog</a>.</li>
     <li>Create a <b>Discovery</b> instance from <a href="https://cloud.ibm.com/catalog/services/discovery">the catalog</a> and select the default "Plus" plan.</li>
   </ul>
-</details>
 
 ### 2. Configure Watson Discovery
-
-Start by launching your Watson Discovery instance. How you do this will depend on whether you provisioned the instance on IBM Cloud Pak for Data or on IBM Cloud.
-
-Click to expand:
-
-<details><summary><b>IBM Cloud</b></summary>
 
 From the IBM Cloud dashboard, click on your new Discovery service in the resource list.
 
