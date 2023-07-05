@@ -1,5 +1,3 @@
-[![Build Status](https://api.travis-ci.org/IBM/watson-discovery-sdu-with-assistant.svg?branch=master)](https://travis-ci.org/IBM/watson-discovery-sdu-with-assistant)
-
 # Chatbot for the Valorant Master 2023 tournament website using Watson Assistant and Watson Discovery
 
 Using the Watson Discovery Smart Document Understanding (SDU) feature, we will enhance the Discovery model so that queries will be better focused to only search the most relevant information found in a typical owner's manual.
@@ -59,7 +57,7 @@ Create the following services:
 
 From the IBM Cloud dashboard, click on your new Discovery service in the resource list.
 
-  ![disco-launch-service](doc/source/images/disco-launch-service.png)
+  ![disco-launch-service](doc/source/images/1.png)
 
 From the `Manage` tab panel of your Discovery service, click the `Launch Watson Discovery` button.
 
@@ -71,15 +69,15 @@ The landing page for Watson Discovery is a panel showing your current projects.
 
 Create a new project by clicking the `New Project` tile.
 
-  ![disco-create-project](doc/source/images/disco-create-project.png)
+  ![disco-create-project](doc/source/images/2.png)
 
 Give the project a unique name and select the `Document Retrieval` option, then click `Next`.
 
-  ![disco-upload-data](doc/source/images/disco-upload-data.png)
+  ![disco-upload-data](doc/source/images/3.png)
 
 For data source, click on the `Upload data` tile and click `Next`.
 
-  ![disco-create-collection](doc/source/images/disco-create-collection.png)
+  ![disco-create-collection](doc/source/images/4.png)
 
 Enter a unique name for your collection and click `Finish`.
 
@@ -87,7 +85,7 @@ Enter a unique name for your collection and click `Finish`.
 
 On the `Configure Collection` panel, click the `Drag and drop files here or upload` button to select and upload the `ecobee3_UserGuide.pdf` file located in the `data` directory of your local repo.
 
-  ![disco-upload-file](doc/source/images/disco-upload-file.png)
+  ![disco-upload-file](doc/source/images/5.png)
 
 >**NOTE**: The `Ecobee` is a popular residential thermostat that has a wifi interface and multiple configuration options.
 
@@ -99,15 +97,15 @@ Note that after the file is loaded it may take some time for Watson Discovery to
 
 To access the collection, make sure you are in the correct project, then click the `Manage Collections` tab in the left-side of the panel.
 
-  ![disco-project-collections](doc/source/images/disco-project-collections.png)
+  ![disco-project-collections](doc/source/images/6.png)
 
 Click the collection tile to access it.
 
-  ![disco-activity](doc/source/images/disco-activity.png)
+  ![disco-activity](doc/source/images/7.png)
 
 Before applying Smart Document Understanding (SDU) to our document, lets do some simple queries on the data so that we can compare it to results found after applying SDU. Click the `Try it out` panel to bring up the query panel.
 
-  ![disco-query-results-pre](doc/source/images/disco-query-results-pre.png)
+  ![disco-query-results-pre](doc/source/images/8.png)
 
 Enter queries related to the operation of the thermostat and view the results. As you will see, the results are not very useful, and in some cases, not even related to the question.
 
