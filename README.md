@@ -41,13 +41,7 @@ An Assistant search skill is a mechanism that allows you to directly query a Wat
 1. [Add Watson service credentials to environment file](#5-add-watson-service-credentials-to-environment-file)
 1. [Run the application](#6-run-the-application)
 
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/IBM/watson-assistant-with-search-skill
-```
-
-### 2. Create Watson services
+### 1. Create Watson services
 
 Create the following services:
 
@@ -67,25 +61,11 @@ Click to expand:
   </ul>
 </details>
 
-### 3. Configure Watson Discovery
+### 2. Configure Watson Discovery
 
 Start by launching your Watson Discovery instance. How you do this will depend on whether you provisioned the instance on IBM Cloud Pak for Data or on IBM Cloud.
 
-Click to expand one:
-
-<details><summary><b>IBM Cloud Pak for Data</b></summary>
-
-Find the Discovery service in your list of `Provisioned Instances` in your IBM Cloud Pak for Data Dashboard.
-
-Click on `View Details` from the options menu associated with your Discovery service.
-
-  ![disco-view-details](doc/source/images/disco-view-details.png)
-
-Click on `Open Watson Discovery`.
-
-  ![open-disco](doc/source/images/open-disco.png)
-
-</details>
+Click to expand:
 
 <details><summary><b>IBM Cloud</b></summary>
 
@@ -228,24 +208,6 @@ Go to the Assistant tab and click `Create assistant`.
 
 Give your assistant a unique name then click `Create assistant`.
 
-### Create Assistant dialog skill
-
-You will then be taken to a panel that shows the `Skills` assigned to your `Assistant`. You can also revisit this panel by selected the desired `Assistant` listed in the `Assistants` tab panl.
-
-  ![ecobee-assistant-skills-panel](doc/source/images/ecobee-assistant-skills-panel.png)
-
-Click on `Add dialog skill`.
-
-From the `Add Dialog Skill` panel, select the `Use sample skill` tab.
-
-Select the `Customer Care Sample Skill` as your template.
-
-The newly created dialog skill should now be shown in your Assistant panel:
-
-  ![assistant-skills-list-1](doc/source/images/assistant-skills-list-1.png)
-
-Click on your newly created dialog skill to edit it.
-
 #### Add new intent
 
 The default customer care dialog does not have a way to deal with any questions involving outside resources, so we will need to add this.
@@ -306,31 +268,11 @@ Now when the dialog skill node invokes the search skill, the search skill will q
 
 ### Test in Assistant Tooling
 
-> **NOTE**: The following feature is currently only available for Watson Assistant provisioned on IBM Cloud.
-
-You should now see both skills have been added to your assistant.
-
-![ecobee-assistant-with-skills](doc/source/images/ecobee-assistant-with-skills.png)
-
 Normally, you can test the dialog skill be selecting the `Try it` button located at the top right side of the dialog skill panel, but when integrated with a search skill, a different method of testing must be used.
-
-From your assistant panel, select `Preview link`.
-
-![assistant-preview-link](doc/source/images/assistant-preview-link.png)
-
-From the list of available integration types, select `Preview link`.
-
-If you click on the generated URL link, you will be able to interact with your dialog skill. Note that the input "how do I turn on the heater?" has triggered our `Ask about product` dialog node and invoked our search skill.
 
 ![preview-link](doc/source/images/preview-link.png)
 
 You will also need the credentials for your Assistant service. What credentials you will need will depend on if you provisioned Watson Assistant on IBM Cloud Pak for Data or on IBM Cloud. Click to expand one:
-
-Sample questions:
-
-* **How do I override the scheduled temperature**
-* **How do I turn on the heater**
-* **how do I set a schedule?**
 
 # Sample Output
 
