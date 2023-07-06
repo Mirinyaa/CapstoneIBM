@@ -1,8 +1,13 @@
 # Chatbot for the Valorant Master 2023 tournament website using Watson Assistant and Watson Discovery
+Capstone Project - Muhammad Rahmadi Husada
 
 Using the Watson Discovery Smart Document Understanding (SDU) feature, we will enhance the Discovery model so that queries will be better focused to only search the most relevant information found in a typical owner's manual.
 
 Using Watson Assistant, we will use a standard customer care dialog to handle a typical conversation between a customer and a company representitive. When a customer question involves operation of a product, the Assistant dialog skill will communicate with the Discovery service using an Assistant search skill.
+
+## Pattern
+
+https://developer.ibm.com/learningpaths/get-started-watson-discovery/smart-document-understanding-search-skill/
 
 ## What is SDU?
 
