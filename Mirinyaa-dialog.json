@@ -1,0 +1,405 @@
+{
+  "intents": [
+    {
+      "intent": "account",
+      "examples": [
+        {
+          "text": "account"
+        },
+        {
+          "text": "I want know about valorant account"
+        },
+        {
+          "text": "Valorant account"
+        },
+        {
+          "text": "Valorant game account"
+        },
+        {
+          "text": "Valorant user"
+        }
+      ],
+      "description": "GAME ACCOUNTS"
+    },
+    {
+      "intent": "age",
+      "examples": [
+        {
+          "text": "age"
+        },
+        {
+          "text": "Age restrictions"
+        },
+        {
+          "text": "Minimum age"
+        },
+        {
+          "text": "What is the minimum age to play valorant ?"
+        }
+      ],
+      "description": "AGE RESTRICTIONS"
+    },
+    {
+      "intent": "cheating",
+      "examples": [
+        {
+          "text": "Aim hacks"
+        },
+        {
+          "text": "Are there any penalties for using cheats?"
+        },
+        {
+          "text": "Cheat"
+        },
+        {
+          "text": "Is it ok to use cheats?"
+        },
+        {
+          "text": "Wallhacks"
+        }
+      ],
+      "description": "CHEAT"
+    },
+    {
+      "intent": "maps",
+      "examples": [
+        {
+          "text": "Maps"
+        },
+        {
+          "text": "Maps in valorant"
+        },
+        {
+          "text": "Maps valorant"
+        },
+        {
+          "text": "What maps are in valorant?"
+        }
+      ],
+      "description": "MAPS"
+    },
+    {
+      "intent": "serversetup",
+      "examples": [
+        {
+          "text": "gameplay setting"
+        },
+        {
+          "text": "Options"
+        },
+        {
+          "text": "server"
+        },
+        {
+          "text": "Server config"
+        },
+        {
+          "text": "Server configure"
+        },
+        {
+          "text": "server setting?"
+        },
+        {
+          "text": "Server setup?"
+        }
+      ],
+      "description": "SERVER"
+    },
+    {
+      "intent": "teamrosters",
+      "examples": [
+        {
+          "text": "Format playing?"
+        },
+        {
+          "text": "How many player in team ?"
+        },
+        {
+          "text": "Team"
+        },
+        {
+          "text": "valorant playing system"
+        }
+      ],
+      "description": "TEAMS AND ROSTERS"
+    },
+    {
+      "intent": "thankyou",
+      "examples": [
+        {
+          "text": "I appreciate"
+        },
+        {
+          "text": "Thanks"
+        },
+        {
+          "text": "Thank you"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_1_1688283274097",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Account Questions",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_9_1687690131508"
+      },
+      "conditions": "#account",
+      "dialog_node": "node_10_1687690089123",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Team Questions",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_4_1687694370911"
+      },
+      "conditions": "#teamrosters",
+      "dialog_node": "node_1_1687694350498",
+      "previous_sibling": "node_9_1687690131508"
+    },
+    {
+      "type": "standard",
+      "title": "Thanks",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "My Pleasure"
+              },
+              {
+                "text": "You're Welcome"
+              },
+              {
+                "text": "Glad To Help"
+              },
+              {
+                "text": "Happy To Be Of Service"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#thankyou",
+      "dialog_node": "node_1_1688283274097",
+      "previous_sibling": "node_9_1687696032870"
+    },
+    {
+      "type": "standard",
+      "title": "Replay User Server",
+      "output": {
+        "generic": [
+          {
+            "query": "",
+            "filter": "",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          }
+        ]
+      },
+      "conditions": "#serversetup",
+      "dialog_node": "node_2_1687695870214",
+      "previous_sibling": "node_4_1687695865760"
+    },
+    {
+      "type": "standard",
+      "title": "Map Questions",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_4_1687695612987"
+      },
+      "conditions": "#maps",
+      "dialog_node": "node_3_1687695609745",
+      "previous_sibling": "node_4_1687695774559"
+    },
+    {
+      "type": "standard",
+      "title": "Replay User Team",
+      "output": {
+        "generic": [
+          {
+            "query": "",
+            "filter": "",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          }
+        ]
+      },
+      "conditions": "#teamrosters",
+      "dialog_node": "node_4_1687694370911",
+      "previous_sibling": "node_1_1687694350498"
+    },
+    {
+      "type": "standard",
+      "title": "Replay User Maps",
+      "output": {
+        "generic": [
+          {
+            "query": "",
+            "filter": "",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          }
+        ]
+      },
+      "conditions": "#maps",
+      "dialog_node": "node_4_1687695612987",
+      "previous_sibling": "node_3_1687695609745"
+    },
+    {
+      "type": "standard",
+      "title": "Replay User Ages",
+      "output": {
+        "generic": [
+          {
+            "query": "",
+            "filter": "",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          }
+        ]
+      },
+      "conditions": "#age",
+      "dialog_node": "node_4_1687695774559",
+      "previous_sibling": "node_5_1687695063198"
+    },
+    {
+      "type": "standard",
+      "title": "Server Questions",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_2_1687695870214"
+      },
+      "conditions": "#serversetup",
+      "dialog_node": "node_4_1687695865760",
+      "previous_sibling": "node_4_1687695612987"
+    },
+    {
+      "type": "standard",
+      "title": "Age Questions",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_4_1687695774559"
+      },
+      "conditions": "#age",
+      "dialog_node": "node_5_1687695063198",
+      "previous_sibling": "node_4_1687694370911"
+    },
+    {
+      "type": "standard",
+      "title": "Cheat Questions",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_9_1687696032870"
+      },
+      "conditions": "#cheating",
+      "dialog_node": "node_5_1687696029784",
+      "previous_sibling": "node_2_1687695870214"
+    },
+    {
+      "type": "standard",
+      "title": "Replay User Account",
+      "output": {
+        "generic": [
+          {
+            "query": "",
+            "filter": "",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          }
+        ]
+      },
+      "conditions": "#account",
+      "dialog_node": "node_9_1687690131508",
+      "previous_sibling": "node_10_1687690089123"
+    },
+    {
+      "type": "standard",
+      "title": "Replay User Cheats",
+      "output": {
+        "generic": [
+          {
+            "query": "",
+            "filter": "",
+            "query_type": "natural_language",
+            "response_type": "search_skill"
+          }
+        ]
+      },
+      "conditions": "#cheating",
+      "dialog_node": "node_9_1687696032870",
+      "previous_sibling": "node_5_1687696029784"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Welcome to the official VCT VALORANT MASTERS TOURNAMENT 2023 Website~~~, do you have any questions about Valorant and Tournament rules?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "language": "en",
+  "description": "created for assistant 05125ef0-24d0-4713-bb16-7928edb99b01",
+  "name": "Mirinyaa-dialog"
+}
